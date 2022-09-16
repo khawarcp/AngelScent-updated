@@ -1,0 +1,77 @@
+<section class="featured-products">
+        <div class="container">
+            <h2> {{ section.settings.featured_title }} </h2>
+            <div class="row">
+                {% for block in section.blocks %}
+                {% assign product = all_products[block.settings.featured_product] %}
+                <div class="col-md-3">
+                    <div class="featured-product-col">
+                        <a href="{{ product.url }}" class="featured-product-img">
+                            <img laoding="lazy" src="{{ product.featured_image | img_url : 'master' }}" alt="{{ product.title }}">
+                        </a>
+                        <div class="featured-product-text">
+                            <div class="featured-title-whishlist">
+                                <h4>{{ product.title }}</h4>
+                                <span>                                 
+                                    <!-- Swym Wishlist Plus EPI Button-->
+                                    <button data-with-epi="true" class="swym-button swym-add-to-wishlist-view-product product_{{product.id}}" data-swaction="addToWishlist" data-product-id="{{product.id | json}}" data-variant-id="{{product.variants[0].id}}" data-product-url="{{ shop.url }}{{ product.url }}"></button>
+                                    <!-- Swym Wishlist Plus EPI Button-->
+                                </span>
+                            </div>
+                            <div class="featured-price">
+                                {% if product.compare_at_price > product.price %}
+                                     <h6> {{ product.compare_at_price | money }} </h6>
+                                    <h5>{{ product.price | money }}</h5>
+                                {% else %}
+                                     <h5>{{ product.price | money }}</h5>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+
+{% schema %}
+  {
+    "name": "Featured Products",
+    "settings": [
+      {
+        "type": "text",
+        "id":"featured_title",
+        "label":"Title"
+      }
+    ],
+    "blocks":
+    [
+        {
+            "name" : "Product",
+            "type": "product",
+            "limit": 4,
+            "settings":
+            [   
+               {
+                "type": "product",
+                "id": "featured_product",
+                "label": "Product"        
+               }
+            ]
+        }
+    ],
+    "presets":[
+      {
+        "name":"Featured Products",
+        "category":"Custom Sections"
+      }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

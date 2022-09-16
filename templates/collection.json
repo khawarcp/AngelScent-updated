@@ -1,0 +1,49 @@
+{
+  "sections": {
+    "banner": {
+      "type": "collection-banner",
+      "settings": {
+        "background": "shopify:\/\/shop_images\/home-banner.png"
+      }
+    },
+    "about": {
+      "type": "shop-about-us",
+      "settings": {
+        "heading": "Angelscent",
+        "info_1": "Angelscent Candles has accepted the \"calling\" to becoming a constant reminder to humans, that while your busy \"being\" human that you are also light! Our candles provide a natural source of energy along with essentials of love and so do YOU!",
+        "info_2": "Angelscent Candles are meant to be a direct representation of us.  All of our candles come inside of a solid woodbox, which for Angelscent represents the body with the light inside, so if you haven't realized this, we want to help you find that light and help you get Lit!",
+        "image": "shopify:\/\/shop_images\/about-img_19392bfd-6eaa-4268-b056-ebe5f46b1f18.png"
+      }
+    },
+    "product-grid": {
+      "type": "main-collection-product-grid",
+      "settings": {
+        "products_per_page": 12,
+        "columns_desktop": 4,
+        "image_ratio": "adapt",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": false,
+        "enable_quick_add": false,
+        "enable_filtering": false,
+        "filter_type": "drawer",
+        "enable_sorting": false,
+        "columns_mobile": "1",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "featured": {
+      "type": "collection-featured",
+      "settings": {
+        "product": "in-light-in"
+      }
+    }
+  },
+  "order": [
+    "banner",
+    "about",
+    "product-grid",
+    "featured"
+  ]
+}

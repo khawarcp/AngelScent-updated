@@ -1,0 +1,130 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "title": {
+          "type": "title",
+          "settings": {
+          }
+        },
+        "caption": {
+          "type": "text",
+          "settings": {
+            "text": "{{ product.metafields.descriptors.subtitle.value }}",
+            "text_style": "subtitle"
+          }
+        },
+        "price": {
+          "type": "price",
+          "settings": {
+          }
+        },
+        "f70105b0-752b-4bce-b500-5c04109c5619": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "<p class=\"product-text-para\">{{ product.metafields.custom.short_description }}<\/p>"
+          }
+        },
+        "4ea50bd0-c80a-44d1-9bc4-5b9b6f565dfa": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "<div class=\"availability-stock\"> \n<h4>Availability:<\/h4> \n{% if product.available %}<span>In Stock<\/span> \n{% else %}\n<span>Out of Stock<\/span> \n{% endif %}\n<\/div>"
+          }
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button"
+          }
+        },
+        "quantity_selector": {
+          "type": "quantity_selector",
+          "settings": {
+          }
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true
+          }
+        }
+      },
+      "block_order": [
+        "title",
+        "caption",
+        "price",
+        "f70105b0-752b-4bce-b500-5c04109c5619",
+        "4ea50bd0-c80a-44d1-9bc4-5b9b6f565dfa",
+        "variant_picker",
+        "quantity_selector",
+        "buy_buttons"
+      ],
+      "settings": {
+        "enable_sticky_info": true,
+        "gallery_layout": "thumbnail",
+        "media_size": "medium",
+        "mobile_thumbnails": "hide",
+        "hide_variants": true,
+        "enable_video_looping": false,
+        "padding_top": 36,
+        "padding_bottom": 12
+      }
+    },
+    "product-tabs": {
+      "type": "product-description-tabs",
+      "settings": {
+      }
+    },
+    "product-featured": {
+      "type": "product-featured",
+      "blocks": {
+        "8d495f25-0be6-421d-9ea7-55ca2d6f6827": {
+          "type": "featured",
+          "settings": {
+            "heading": "IN-LIGHT-IN Candle",
+            "info": "IN-Light-IN is for those times when you want to summon the light within. When it's time for you\n                        to just be with you!",
+            "image": "shopify:\/\/shop_images\/inlight-in-candle.png"
+          }
+        },
+        "bacec363-bf67-4529-92f3-152bf2100e58": {
+          "type": "featured",
+          "settings": {
+            "heading": "Features",
+            "info": "IN-Light-IN is for those times when you want to summon the light within. When it's time for you\n                        to just be with you!",
+            "image": "shopify:\/\/shop_images\/features-img.png"
+          }
+        }
+      },
+      "block_order": [
+        "8d495f25-0be6-421d-9ea7-55ca2d6f6827",
+        "bacec363-bf67-4529-92f3-152bf2100e58"
+      ],
+      "settings": {
+      }
+    },
+    "product-recommendations": {
+      "type": "product-recommendations",
+      "settings": {
+        "heading": "Related Products",
+        "heading_size": "h2",
+        "products_to_show": 3,
+        "columns_desktop": 3,
+        "color_scheme": "background-1",
+        "image_ratio": "square",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "columns_mobile": "1",
+        "padding_top": 36,
+        "padding_bottom": 28
+      }
+    }
+  },
+  "order": [
+    "main",
+    "product-tabs",
+    "product-featured",
+    "product-recommendations"
+  ]
+}

@@ -1,0 +1,148 @@
+{
+  "sections": {
+    "1661851811e3d299d7": {
+      "type": "index-banner",
+      "settings": {
+        "banner_img": "shopify:\/\/shop_images\/home-banner.png",
+        "banner_title": "Welcome To Angelscent",
+        "banner_subtitle": "We are Light energy & we possess something inside of ourselves that causes light & our ability to be lit just like a wick.",
+        "shop_button_text": "Shop Now",
+        "shop_button_link": "shopify:\/\/collections\/shop-angelscent-candles",
+        "Learn_button_text": "Learn More",
+        "learn_button_link": "shopify:\/\/pages\/about"
+      }
+    },
+    "16618560351b397649": {
+      "type": "index-welcome-angelscent",
+      "settings": {
+        "welcome_title": "Welcome To Angelscent",
+        "welcome_subtitle": "Angelscent Candles has accepted the \"calling\" to becoming a constant reminder to humans, that while your busy \"being\" human that you are also light! Our candles provide a natural source of energy along with essentials of love and so do YOU!",
+        "index_product1": "little-blessings",
+        "index_product2": "in-light-in"
+      }
+    },
+    "1661939458fadb76a1": {
+      "type": "index-most-viewed-products",
+      "blocks": {
+        "0dfdecb4-e1db-412b-971e-e7b605620582": {
+          "type": "Products",
+          "settings": {
+            "product_name": "Little Blessing",
+            "product_url": "shopify:\/\/products\/little-blessings"
+          }
+        },
+        "a996af92-4c52-4718-bb5c-486be9df40f7": {
+          "type": "Products",
+          "settings": {
+            "product_name": "IN-Light-In",
+            "product_url": "shopify:\/\/products\/in-light-in"
+          }
+        },
+        "c1700f37-5548-49a2-a1af-be4a9b4be4c5": {
+          "type": "Products",
+          "settings": {
+            "product_name": "Gods Country",
+            "product_url": "shopify:\/\/products\/gods-gift"
+          }
+        }
+      },
+      "block_order": [
+        "0dfdecb4-e1db-412b-971e-e7b605620582",
+        "a996af92-4c52-4718-bb5c-486be9df40f7",
+        "c1700f37-5548-49a2-a1af-be4a9b4be4c5"
+      ],
+      "settings": {
+        "viewed_product_title": "Most Viewed Products",
+        "background_image": "shopify:\/\/shop_images\/most-viewed-bg.png"
+      }
+    },
+    "1661942566ab8ccfe5": {
+      "type": "index-featured-products",
+      "blocks": {
+        "daf920e3-dc85-49ed-b015-91907bc36731": {
+          "type": "product",
+          "settings": {
+            "featured_product": "gods-gift"
+          }
+        },
+        "995b571d-a5b3-4421-9e1f-938f0acae29f": {
+          "type": "product",
+          "settings": {
+            "featured_product": "in-light-in"
+          }
+        },
+        "176269ab-aac2-46b1-97d6-3c37050c25a5": {
+          "type": "product",
+          "settings": {
+            "featured_product": "self-sustained"
+          }
+        },
+        "ddae00c0-d535-4eab-8b78-5183d5afb3e9": {
+          "type": "product",
+          "settings": {
+            "featured_product": "little-blessings"
+          }
+        }
+      },
+      "block_order": [
+        "daf920e3-dc85-49ed-b015-91907bc36731",
+        "995b571d-a5b3-4421-9e1f-938f0acae29f",
+        "176269ab-aac2-46b1-97d6-3c37050c25a5",
+        "ddae00c0-d535-4eab-8b78-5183d5afb3e9"
+      ],
+      "settings": {
+        "featured_title": "Featured Products"
+      }
+    },
+    "1662537228c0262bdc": {
+      "type": "index-about-section",
+      "settings": {
+        "heading": "About Us",
+        "info": "The purpose of Angelscent Candles is to be a constant reminder and I do mean \"reminder\" because each of us knows but may forget, that we possess everything we need inside of ourselves to do, be or have anything that we so desire to experience while on this dimension.",
+        "button_text": "Read More",
+        "button_url": "shopify:\/\/pages\/about",
+        "image": "shopify:\/\/shop_images\/gods-gift-img.png"
+      }
+    },
+    "16626415596c0f2397": {
+      "type": "index-angelscent-candle",
+      "settings": {
+        "heading": "Angelscent Candles",
+        "info": "The candles are meant to be a direct representation of US!!! We are Light energy and we possess something inside of ourselves that causes light and our ability to be lit just like a wick. We are a lot like Candles which is the reason I have chosen and been chosen to help each of you find your LIGHT!!!",
+        "image": "shopify:\/\/shop_images\/angelscent-bg.png"
+      }
+    },
+    "1662641887cc603b45": {
+      "type": "self-sustained-gods-gifts",
+      "blocks": {
+        "501f561a-0736-4c77-9f75-9ada1fd0184d": {
+          "type": "product",
+          "settings": {
+            "featured_product": "self-sustained"
+          }
+        },
+        "b4065f84-d93b-40be-955d-443eefb0eb84": {
+          "type": "product",
+          "settings": {
+            "featured_product": "gods-gift"
+          }
+        }
+      },
+      "block_order": [
+        "501f561a-0736-4c77-9f75-9ada1fd0184d",
+        "b4065f84-d93b-40be-955d-443eefb0eb84"
+      ],
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "1661851811e3d299d7",
+    "16618560351b397649",
+    "1661939458fadb76a1",
+    "1661942566ab8ccfe5",
+    "1662537228c0262bdc",
+    "16626415596c0f2397",
+    "1662641887cc603b45"
+  ]
+}

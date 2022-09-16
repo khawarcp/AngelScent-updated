@@ -1,0 +1,63 @@
+<section class="about-us self-sustained-main">
+    <div class="container">
+        {% for block in section.blocks %}
+            {% assign product = all_products[block.settings.featured_product] %}
+        <div class="row">
+            <div class="col-md-6">
+                <div class="about-img">
+                    <img laoding="lazy" src="{{ product.featured_image | img_url : 'master' }}" alt="{{ product.title }}">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="about-text-col">
+                    <h2>{{ product.title }}</h2>
+                    {%- render 'price', product: product -%}
+                    <p> {{ product.description }} </p>
+                    <form action="/cart/add" method="post" class="shop-add-to-cart">
+                        <a href="{{ product.url }}">Shop Now</a>
+                        <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id}}" />
+                        <button type="submit" class="add-to-cart">Add To Cart</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+
+
+
+{% schema %}
+  {
+    "name": "Self Sustained Gods Gift",
+    "settings": [],
+    "blocks":
+    [
+        {
+            "name" : "Product",
+            "type": "product",
+            "settings":
+            [   
+               {
+                "type": "product",
+                "id": "featured_product",
+                "label": "Product"        
+               }
+            ]
+        }
+    ],
+    "presets":[
+      {
+        "name":"Self Sustained  Gods Gift",
+        "category":"Custom Sections"
+      }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

@@ -1,0 +1,60 @@
+<section class="about-us self-sustained-main shop-in-light-in product-detail-shop-rows">
+    <div class="container">
+      {% for block in section.blocks %}
+        <div class="row">
+            <div class="col-md-6">
+                <div class="about-img">
+                    {% if block.settings.image != blank %}
+                    <img loading="lazy" src="{{ block.settings.image | img_url : "master" }}" alt="{{ block.settings.image.alt }}">
+                      {% else %}
+                        {{ 'collection-1' | placeholder_svg_tag }}
+                      {% endif %}
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="about-text-col">
+                    <h2> {{ block.settings.heading }} </h2>
+                    <p>{{ block.settings.info }}</p>
+                </div>
+            </div>
+        </div>
+      {% endfor %}
+    </div>
+</section>
+{% schema %}
+  {
+    "name": "Featured Rows",
+    "settings": [],
+    "blocks":
+    [
+        {
+            "type" : "featured",
+            "name" : "Row",
+            "settings":
+            [
+                {
+                    "type" : "text",
+                    "id" : "heading",
+                    "label" : "Heading"
+                },
+                {
+                    "type" : "textarea",
+                    "id" : "info",
+                    "label" : "Description"
+                },
+                {
+                    "type" : "image_picker",
+                    "id" : "image",
+                    "label" : "Image"
+                }
+            ]
+        }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

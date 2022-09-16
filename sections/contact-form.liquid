@@ -1,0 +1,189 @@
+
+<section class="contact-info-sec" id="welcome-anglescent">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="request-quote-col">
+                      {%- if section.settings.heading != blank -%}
+                        <h2> {{ section.settings.heading }} </h2>
+                        {%- endif -%}
+                        {%- form 'contact', id: 'ContactForm' -%}
+                           {%- if form.posted_successfully? -%}
+                              <h2 class="form-status form-status-list form__message" tabindex="-1" autofocus>{% render 'icon-success' %} {{ 'templates.contact.form.post_success' | t }}</h2>
+                            {%- elsif form.errors -%}
+                              <div class="form__message">
+                                <h2 class="form-status caption-large text-body" role="alert" tabindex="-1" autofocus>{% render 'icon-error' %} {{ 'templates.contact.form.error_heading' | t }}</h2>
+                              </div>
+                              <ul class="form-status-list caption-large" role="list">
+                                <li>
+                                  <a href="#ContactForm-email" class="link">
+                                    {{ form.errors.translated_fields['email'] | capitalize }} {{ form.errors.messages['email'] }}
+                                  </a>
+                                </li>
+                              </ul>
+                            {%- endif -%}
+
+                        <div class="input-container">
+                                 <input autocomplete="name" type="text" id="ContactForm-name" name="contact[{{ 'templates.contact.form.name' | t }}]" value="{% if form.name %}{{ form.name }}{% elsif customer %}{{ customer.name }}{% endif %}" placeholder="{{ 'templates.contact.form.name' | t }}">
+                            </div>
+                            <div class="input-container">
+                                <input type="tel" id="ContactForm-phone" autocomplete="tel" name="contact[{{ 'templates.contact.form.phone' | t }}]" pattern="[0-9\-]*" value="{% if form.phone %}{{ form.phone }}{% elsif customer %}{{ customer.phone }}{% endif %}" placeholder="{{ 'templates.contact.form.phone' | t }}">
+                            </div>
+                     
+                            <div class="input-container">
+                              <input
+                                autocomplete="email"
+                                type="email"
+                                id="ContactForm-email"
+                                name="contact[email]"
+                                spellcheck="false"
+                                autocapitalize="off"
+                                value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}"
+                                aria-required="true"
+                                {% if form.errors contains 'email' %}
+                                  aria-invalid="true"
+                                  aria-describedby="ContactForm-email-error"
+                                {% endif %}
+                                placeholder="{{ 'templates.contact.form.email' | t }}"
+                              >
+                              <label class="field__label" for="ContactForm-email">{{ 'templates.contact.form.email' | t }} <span aria-hidden="true">*</span></label>
+                              {%- if form.errors contains 'email' -%}
+                                <small class="contact__field-error" id="ContactForm-email-error">
+                                  <span class="visually-hidden">{{ 'accessibility.error' | t }}</span>
+                                  <span class="form__message">{% render 'icon-error' %}{{ form.errors.translated_fields['email'] | capitalize }} {{ form.errors.messages['email'] }}</span>
+                                </small>
+                              {%- endif -%}
+                            </div>
+                            <div class="input-container">
+                              <textarea
+                              rows="10"
+                              id="ContactForm-body"
+                              name="contact[{{ 'templates.contact.form.comment' | t }}]"
+                              placeholder="{{ 'templates.contact.form.comment' | t }}"
+                            >
+                              {{- form.body -}}
+                            </textarea>
+                            </div>
+                            <div class="input-submit">
+                                <input type="submit" value="Submit">
+                            </div>
+                        {%- endform -%}
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="find-us-col">
+                    <h2> {{ section.settings.contact_heading }} </h2>
+                    <ul class="find-us">
+                      {% if section.settings.address != blank %}
+                        <li>
+                            <img src="{{ 'address-icon.png' | asset_img_url : "master" }}" alt="address-icon">
+                            <span>{{ section.settings.address }}</span>
+                        </li
+                        {% endif %}
+                        {% if section.settings.phone != blank %}
+                        <li>
+                           <a href="tel:{{ section.settings.phone }}">
+                                    <img src="{{ 'phone-icon.png' | asset_img_url : "master" }}" alt="address-icon">
+                                    <span>{{ section.settings.phone }}</span>
+                                </a>
+                        </li>
+                          {% endif %}
+
+                       <li>
+                            <a href="tel:{{ section.settings.phone }}">
+                                 <img src="{{ 'phone-icon.png' | asset_img_url : "master" }}" alt="address-icon">
+                               <span>{{ section.settings.phone }}</span>
+                            </a>
+                        </li>
+                      {% if section.settings.email != blank %}
+                        <li>
+                            <a href="mailto:{{ section.settings.email }}">
+                                <img src="{{ 'bill-sanders-img.png' | asset_img_url : "master" }}" alt="address-icon">
+                                <span>{{ section.settings.email }}</span>
+                            </a>
+                        </li>
+                        {% endif %}
+                      {% if section.settings.email_2 != blank %}
+                        <li>
+                            <a href="mailto:{{ section.settings.email_2 }}">
+                                <img src="{{ 'bill-sanders-img2.png' | asset_img_url : "master" }}" alt="address-icon">
+                                <span>{{ section.settings.email_2 }}</span>
+                            </a>
+                        </li>
+                        {% endif %}
+                    </ul>
+                    <div class="f-social-links">
+                        <ul>
+                             {% if settings.social_facebook_link != blank %}
+                                    <li><a href="{{ settings.social_facebook_link }}"><i class="fa-brands fa-facebook-f"></i></a></li>
+                                    {% endif %}
+                                    {% if settings.social_twitter_link != blank %}
+                                    <li><a href="{{ settings.social_twitter_link }}"><i class="fa-brands fa-twitter"></i></a></li>
+                                    {% endif %}
+                                    {% if settings.social_instagram_link != blank %}
+                                    <li><a href="{{ settings.social_instagram_link }}"><i class="fa-brands fa-instagram"></i></a></li>
+                                    {% endif %}
+                        </ul>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="google-map-sec">
+        {{ section.settings.map }}
+    </section>
+{% schema %}
+{
+  "name": "t:sections.contact-form.name",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "default": "Contact form",
+      "label": "Heading"
+    },
+    {
+      "type" : "header",
+        "content" : "Contact Details"
+    },
+      {
+        "type" : "text",
+          "id" : "contact_heading",
+          "label": "Heading"
+      },
+      {
+        "type" : "text",
+          "id" : "address",
+          "label": "Address"
+      },
+      {
+        "type" : "text",
+          "id" : "phone",
+          "label": "Phone"
+      },
+      {
+        "type" : "text",
+          "id" : "email",
+          "label": "Email Address"
+      },
+      {
+        "type" : "text",
+          "id" : "email_2",
+          "label": "Secondary Email Address"
+      },
+      {
+        "type" : "html",
+          "id" : "map",
+          "label": "Map"
+      }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.contact-form.presets.name"
+    }
+  ]
+}
+{% endschema %}

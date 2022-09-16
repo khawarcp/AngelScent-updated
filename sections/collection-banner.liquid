@@ -1,0 +1,34 @@
+{% if collection.image %}
+  <section class="home-banner shop-banner" loading="lazy" style="background-image: url('{{ collection.image | img_url : "master" }}')">
+    {% else %}
+  <section class="home-banner shop-banner" loading="lazy" style="background-image: url('{{ section.settings.background | img_url : "master" }}')">
+  {% endif %}
+      <div class="container">
+          <div class="home-text">
+              <h2> {{ collection.title }} </h2>
+              <p> {{ collection.description }} </p>
+          </div>
+          <div class="arrow-down">
+              <a href="#welcome-anglescent"><img loading="lazy"  src="{{ 'shop-arrow-down.png' | asset_img_url : "master" }}" alt="shop-arrow-down"></a>
+          </div>
+      </div>
+  </section>
+{% schema %}
+  {
+    "name": "Collection Banner",
+    "settings": 
+    [
+        {
+          "type" : "image_picker",
+            "id" : "background",
+            "label": "Background Image"
+        }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

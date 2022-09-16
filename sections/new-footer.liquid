@@ -1,0 +1,228 @@
+<footer loading="lazy" style="background-image: url('{{ section.settings.background | img_url : 'master' }}')">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="logo-text-col">
+                    <a href="index.html" class="footer-logo">
+                        <img loading="lazy" src="{{ section.settings.footer_log | img_url : 'master' }}" alt="{{ shop.name }}">
+                    </a>
+                    <p> {{  section.settings.info }} </p>
+                    <h4>{{  section.settings.owner }}</h4>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="quicks-link-col">
+                            <h5> {{ section.settings.menu_title_1 }} </h5>
+                            <ul>
+                                {% for link in linklists[section.settings.menu_1].links %}
+                                <li><a href="{{ link.url }}"> {{ link.title }} </a></li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-8 col-lg-6 f-newsletter-col">
+                        <div class="newsletter-text-social-col">
+                            <h5> {{ section.settings.news_heading }} </h5>
+                            <p> {{ section.settings.subheading }} </p>
+                            {% form 'customer' %}
+                                <input type="hidden" name="contact[tags]" value="newsletter">
+                                <div class="newsletter-form">
+                                    <div class="input-news">
+                                        <input
+                                            id="NewsletterForm--{{ section.id }}"
+                                            type="email"
+                                            name="contact[email]"
+                                            value="{{ form.email }}"
+                                            aria-required="true"
+                                            autocorrect="off"
+                                            autocapitalize="off"
+                                            autocomplete="email"
+                                            {% if form.errors %}
+                                            autofocus
+                                            aria-invalid="true"
+                                            aria-describedby="Newsletter-error--{{ section.id }}"
+                                            {% elsif form.posted_successfully? %}
+                                            aria-describedby="Newsletter-success--{{ section.id }}"
+                                            {% endif %}
+                                            placeholder="{{ 'newsletter.label' | t }}"
+                                            required
+                                        >
+                                        <input type="submit" value="Subscribe">
+                                        {%- if form.errors -%}
+                                        <small class="newsletter-form__message form__message" id="Newsletter-error--{{ section.id }}">{% render 'icon-error' %}{{ form.errors.translated_fields['email'] | capitalize }} {{ form.errors.messages['email'] }}</small>
+                                        {%- endif -%}
+                                    </div>
+                                    {%- if form.posted_successfully? -%}
+                                        <h3 class="newsletter-form__message newsletter-form__message--success form__message" id="Newsletter-success--{{ section.id }}" tabindex="-1" autofocus>{% render 'icon-success' %}{{ 'newsletter.success' | t }}</h3>
+                                    {%- endif -%}
+                                </div>
+                            {% endform %}
+                            <div class="f-social-links">
+                                <ul>
+                                    {% if settings.social_facebook_link != blank %}
+                                    <li><a href="{{ settings.social_facebook_link }}"><i class="fa-brands fa-facebook-f"></i></a></li>
+                                    {% endif %}
+                                    {% if settings.social_twitter_link != blank %}
+                                    <li><a href="{{ settings.social_twitter_link }}"><i class="fa-brands fa-twitter"></i></a></li>
+                                    {% endif %}
+                                    {% if settings.social_instagram_link != blank %}
+                                    <li><a href="{{ settings.social_instagram_link }}"><i class="fa-brands fa-instagram"></i></a></li>
+                                    {% endif %}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="quicks-links">
+                            <h5> {{ section.settings.open_heading }} </h5>
+                            <ul>
+                                <li> {{ section.settings.day_1 }} </li>
+                                <li> {{ section.settings.day_2 }} </li>
+                                <li> {{ section.settings.day_3 }} </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="quicks-links">
+                            <h5> {{ section.settings.menu_title_2 }} </h5>
+                            <ul>
+                                {% for link in linklists[section.settings.menu_2].links %}
+                                <li><a href="{{ link.url }}"> {{ link.title }} </a></li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="quicks-links">
+                            <h5>{{ section.settings.menu_title_3 }}</h5>
+                            <ul>
+                                {% for link in linklists[section.settings.menu_3].links %}
+                                <li><a href="{{ link.url }}"> {{ link.title }} </a></li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="copywrite-text">
+        <div class="container">
+            <p>Copyright &copy; {{ 'now' | date: '%Y' }} {{ shop.name }} All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+
+
+{% schema %}
+  {
+    "name": "Footer",
+    "settings": 
+    [
+       {
+        "type": "image_picker",
+        "id": "background",
+        "label": "Background Image"
+       },
+      {
+        "type": "image_picker",
+        "id": "footer_log",
+        "label": "Logo"
+      },
+     {
+        "type": "textarea",
+        "id": "info",
+        "label": "About"
+     },
+       {
+        "type": "text",
+        "id": "owner",
+        "label": "Author"
+       },
+        {
+            "type": "header",
+            "content": "Menus"
+        },
+       {
+        "type": "text",
+        "id": "menu_title_1",
+        "label": "Heading"
+       },
+        {
+            "type": "link_list",
+            "id": "menu_1",
+            "label": "Menu"
+        },
+        {
+         "type": "text",
+         "id": "menu_title_2",
+         "label": "Heading"
+        },
+         {
+             "type": "link_list",
+             "id": "menu_2",
+             "label": "Menu"
+         },
+         {
+          "type": "text",
+          "id": "menu_title_3",
+          "label": "Heading"
+         },
+          {
+              "type": "link_list",
+              "id": "menu_3",
+              "label": "Menu"
+          },
+          {
+              "type": "header",
+              "content": "Newsletter"
+          },
+         {
+          "type": "text",
+          "id": "news_heading",
+          "label": "Heading"
+         },
+          {
+              "type": "text",
+              "id": "subheading",
+              "label": "Subheading"
+          },
+          {
+              "type": "header",
+              "content": "Opening Time"
+          },
+         {
+          "type": "text",
+          "id": "open_heading",
+          "label": "Heading"
+         },
+          {
+              "type": "text",
+              "id": "day_1",
+              "label": "Time"
+          },
+          {
+              "type": "text",
+              "id": "day_2",
+              "label": "Time"
+          },
+          {
+              "type": "text",
+              "id": "day_3",
+              "label": "Time"
+          }
+
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

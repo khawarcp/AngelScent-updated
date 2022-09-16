@@ -1,0 +1,47 @@
+{% assign product = all_products[section.settings.product] %}
+  <section class="about-us self-sustained-main shop-in-light-in">
+      <div class="container">
+          <div class="row">
+              <div class="col-md-6">
+                  <div class="about-img">
+                    {% if product.images[1] != blank %}
+                      <img laoding="lazy" src="{{ product.images[1] | img_url : 'master' }}" alt="{{ product.title }}">
+                    {% else %}
+                      <img laoding="lazy" src="{{ product.featured_image | img_url : 'master' }}" alt="{{ product.title }}">
+                      {% endif %}
+                  </div>
+              </div>
+              <div class="col-md-6">
+                  <div class="about-text-col">
+                      <h2>{{ product.title }}</h2>
+                     {%- render 'price', product: product -%}
+                      <p> {{ product.description | split : '.' | first }} </p>
+                      <form action="/cart/add" method="post" class="shop-add-to-cart">
+                        <a href="{{ product.url }}">Shop Now</a>
+                        <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id}}" />
+                        <button type="submit" class="add-to-cart">Add To Cart</button>
+                    </form>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section>
+{% schema %}
+  {
+    "name": "Featured Product",
+    "settings": 
+      [
+          {
+            "type" : "product",
+            "id" : "product",
+              "label" : "Product"
+          }
+      ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

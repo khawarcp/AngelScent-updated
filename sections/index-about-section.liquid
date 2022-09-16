@@ -1,0 +1,73 @@
+<section class="about-us">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="about-text-col">
+                        <h2> {{ section.settings.heading }} </h2>
+                        <p>{{ section.settings.info }}</p>
+                        {% if section.settings.button_text != blank %}
+                        <a href="{{ section.settings.button_url }}">{{ section.settings.button_text }}</a>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="about-img">
+                      {% if section.settings.image != blank %}
+                        <img loading="lazy" src="{{ section.settings.image | img_url: 'master'}}" alt="{{ section.settings.image.alt }}">
+                      {% else %}
+                          {{ 'collection-4' | placeholder_svg_tag }}
+                      {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+{% schema %}
+  {
+    "name": "About Section",
+    "settings": 
+    [
+       {
+        "type": "text",
+        "id": "heading",
+        "label": "Heading",
+        "default": "About Us"
+       },
+       {
+        "type": "textarea",
+        "id": "info",
+        "label": "About"
+       },
+       {
+        "type": "text",
+        "id": "button_text",
+        "label": "Button Text",
+        "default": "Read More"
+       },
+       {
+        "type": "url",
+        "id": "button_url",
+        "label": "URL"
+       },
+       {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image"
+       }
+    ],
+    "presets":[
+      {
+        "name":"About Section",
+        "category":"Custom Sections"
+      }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}
